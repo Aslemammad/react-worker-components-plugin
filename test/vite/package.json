@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "test": "vitest",
+    "build": "rimraf dist/ && vite-plugin-cloudflare build ./index.ts ./dist/index.js"
+  },
+  "dependencies": {
+    "miniflare": "^1.4.1",
+    "vite-plugin-cloudflare": "workspace:latest"
+  }
+}
