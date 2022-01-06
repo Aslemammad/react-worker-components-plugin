@@ -1,30 +1,27 @@
 {
   "name": "react-worker-components-plugin",
-  "version": "0.0.7",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "build": "rimraf dist && rollup -c",
     "dev": "rollup -c --watch src",
     "typecheck": "tsc --noEmit"
   },
-  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./vite": {
       "import": "./dist/vite.js",
-      "types": "./dist/vite.d.ts"
+      "types": "./dist/vite.d.ts",
+      "default": "./dist/vite.js"
     }
   },
-  "files": [
-    "dist",
-    "bin",
-    "*.d.ts"
-  ],
+  "files": ["dist", "bin", "*.d.ts"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aslemammad/react-worker-components-plugin.git"
@@ -39,10 +36,12 @@
     "vite": "2.7.0"
   },
   "peerDependencies": {
+    "vite": "*"
   },
   "engines": {
     "node": ">=14.0.0"
   },
   "dependencies": {
+    "es-module-lexer": "^0.9.3"
   }
 }

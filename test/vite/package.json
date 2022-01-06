@@ -1,10 +1,9 @@
 {
+  "type": "module",
   "scripts": {
-    "test": "vitest",
-    "build": "rimraf dist/ && vite-plugin-cloudflare build ./index.ts ./dist/index.js"
+    "test": "vitest"
   },
   "dependencies": {
-    "miniflare": "^1.4.1",
-    "vite-plugin-cloudflare": "workspace:latest"
+    "react-worker-components-plugin": "workspace:^0.0.0"
   }
 }
