@@ -1,13 +1,14 @@
 import React from "react";
 
-import Hello from "./Hello.worker?worker";
+import { Hello, Hey as Hey1 } from "./Hello.worker";
 import { Suspense, useState } from "react";
 // import { wrap } from "react-worker-components";
 import { TextBox } from "./TextBox";
+// import { wrap } from "react-worker-components";
 
-// const Hello = wrap(() => new MyWorker());
-console.log(new Hello);
+// const Hello1 = wrap(() => new Hello());
 
+console.log(Hello, Hey1);
 function App() {
   const [count, setCount] = useState(40);
   return (
@@ -24,6 +25,10 @@ function App() {
       >
         -1
       </button>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <Hey1 />
+      </Suspense>
     </div>
   );
 }

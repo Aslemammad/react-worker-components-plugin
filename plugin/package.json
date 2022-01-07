@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "dev": "rollup -c --watch src",
+    "dev": "rollup -c -w",
     "typecheck": "tsc --noEmit"
   },
   "module": "./dist/index.js",
@@ -19,9 +19,17 @@
       "import": "./dist/vite.js",
       "types": "./dist/vite.d.ts",
       "default": "./dist/vite.js"
+    },
+    "./rwc": {
+      "import": "./dist/rwc.js",
+      "default": "./dist/rwc.js"
     }
   },
-  "files": ["dist", "bin", "*.d.ts"],
+  "files": [
+    "dist",
+    "bin",
+    "*.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aslemammad/react-worker-components-plugin.git"
@@ -42,6 +50,9 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "es-module-lexer": "^0.9.3"
+    "aslemammad-react-worker-components": "^0.1.1",
+    "chalk": "^5.0.0",
+    "es-module-lexer": "^0.9.3",
+    "react-worker-components": "^0.1.0"
   }
 }

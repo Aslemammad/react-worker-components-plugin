@@ -1,1 +1,1 @@
-export { expose, register, wrap } from "react-worker-components";
+export { expose, register, wrap } from "aslemammad-react-worker-components";

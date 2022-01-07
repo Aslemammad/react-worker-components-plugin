@@ -11,11 +11,18 @@ const entry = ["src/vite.ts", "src/rwc.ts", "src/index.ts"];
 const external = [
   ...Object.keys(pkg.dependencies || []),
   ...Object.keys(pkg.peerDependencies || []),
+  'react',
+  'react-dom'
 ];
 
 export default [
   {
     input: entry,
+    watch: {
+      chokidar: {
+        usePolling: true,
+      },
+    },
     output: {
       dir: "dist",
       format: "esm",
@@ -36,6 +43,11 @@ export default [
     ],
   },
   {
+    watch: {
+      chokidar: {
+        usePolling: true,
+      },
+    },
     input: ["src/vite.ts"],
     output: {
       file: "dist/vite.d.ts",
@@ -45,6 +57,11 @@ export default [
     plugins: [dts({ respectExternal: true })],
   },
   {
+    watch: {
+      chokidar: {
+        usePolling: true,
+      },
+    },
     input: ["src/index.ts"],
     output: {
       file: "dist/index.d.ts",

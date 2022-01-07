@@ -1,6 +1,6 @@
 import React from "react";
 
-import { expose } from "react-worker-components";
+// import { expose } from "react-worker-components";
 
 import { TextBox } from "./TextBox";
 
@@ -23,4 +23,12 @@ export const Hello: React.FC<{ count: number }> = ({ count, children }) => {
   );
 };
 
-expose(Hello);
+export const Hey: React.FC = () => {
+  return (
+    <div>
+      <h1>Hey from worker</h1>
+    </div>
+  );
+};
+
+// expose(Hello);
