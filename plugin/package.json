@@ -53,6 +53,7 @@
     "aslemammad-react-worker-components": "^0.1.1",
     "chalk": "^5.0.0",
     "es-module-lexer": "^0.9.3",
+    "mime": "^3.0.0",
     "react-worker-components": "^0.1.0"
   }
 }
