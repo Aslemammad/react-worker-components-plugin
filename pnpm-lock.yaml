@@ -12,6 +12,7 @@ importers:
       '@testing-library/react': ^12.1.2
       '@testing-library/react-hooks': ^7.0.2
       '@testing-library/user-event': ^13.5.0
+      '@types/mime': ^2.0.3
       '@types/react': ^17.0.38
       '@types/react-dom': ^17.0.11
       '@types/shelljs': ^0.8.10
@@ -44,6 +45,7 @@ importers:
       '@testing-library/react': 12.1.2_react-dom@17.0.2+react@17.0.2
       '@testing-library/react-hooks': 7.0.2_react-dom@17.0.2+react@17.0.2
       '@testing-library/user-event': 13.5.0
+      '@types/mime': 2.0.3
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
       '@types/shelljs': 0.8.10
@@ -576,6 +578,10 @@ packages:
     dependencies:
       jest-diff: 27.4.2
       pretty-format: 27.4.2
+    dev: true
+
+  /@types/mime/2.0.3:
+    resolution: {integrity: sha512-Jus9s4CDbqwocc5pOAnh8ShfrnMcPHuJYzVcSUU7lrh8Ni5HuIqX3oilL86p3dlTrk0LzHRCgA/GQ7uNCw6l2Q==}
     dev: true
 
   /@types/minimatch/3.0.5:
