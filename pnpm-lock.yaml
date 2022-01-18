@@ -73,12 +73,14 @@ importers:
       aslemammad-react-worker-components: ^0.1.1
       chalk: ^5.0.0
       es-module-lexer: ^0.9.3
+      react-worker-components: ^0.1.0
       typescript: ^4.5.3
       vite: 2.7.0
     dependencies:
       aslemammad-react-worker-components: 0.1.1_react@17.0.2
       chalk: 5.0.0
       es-module-lexer: 0.9.3
+      react-worker-components: 0.1.0_react@17.0.2
     devDependencies:
       typescript: 4.5.4
       vite: 2.7.0
@@ -1684,7 +1686,6 @@ packages:
       react: '>=16.8.0'
     dependencies:
       react: 17.0.2
-    dev: true
 
   /react/17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
