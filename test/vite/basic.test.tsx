@@ -34,6 +34,7 @@ describe("basic", async () => {
     expect(await page.content()).toContain("Workers");
     expect(await page.content()).toContain("Loading");
     await autoRetry(async () => {
+      // fib(40)
       expect(await page.content()).toContain("102334155");
     });
 

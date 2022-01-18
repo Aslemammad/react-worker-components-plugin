@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { register } from 'react-worker-components-plugin/rwc';
-
 export const TextBox = () => {
   const [text, setText] = useState('');
   return (
@@ -12,4 +10,3 @@ export const TextBox = () => {
   );
 };
 
-register(TextBox, 'TextBox');
