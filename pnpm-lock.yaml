@@ -87,9 +87,11 @@ importers:
 
   test/vite:
     specifiers:
+      mime: ^3.0.0
       react-worker-components-plugin: workspace:^0.0.0
       vite-plugin-inspect: ^0.3.13
     dependencies:
+      mime: 3.0.0
       react-worker-components-plugin: link:../../plugin
     devDependencies:
       vite-plugin-inspect: 0.3.13_vite@2.7.10
@@ -1439,6 +1441,12 @@ packages:
   /merge-stream/2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
     dev: true
+
+  /mime/3.0.0:
+    resolution: {integrity: sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
+    dev: false
 
   /mimic-fn/4.0.0:
     resolution: {integrity: sha512-vqiC06CuhBTUdZH+RYl8sFrL096vA45Ok5ISO6sE/Mr1jRbGH4Csnhi8f3wKVl7x8mO4Au7Ir9D3Oyv1VYMFJw==}

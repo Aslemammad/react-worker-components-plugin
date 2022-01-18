@@ -4,6 +4,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "mime": "^3.0.0",
     "react-worker-components-plugin": "workspace:^0.0.0"
   },
   "devDependencies": {
