@@ -4,7 +4,7 @@
 
 > *something like react server components, but web workers instead of a server*
 
-react-worker-components-plugin is a plugin that renders components in web workers and not in the main thread, which helps in rendering blocking components in a non-blocking way.  This project is based on the experimental [react-worker-components](https://github.com/dai-shi/react-worker-components).
+**react-worker-components-plugin** is a plugin that renders components in web workers and not in the main thread, which helps in rendering blocking components in a non-blocking way.  This project is based on the experimental [react-worker-components](https://github.com/dai-shi/react-worker-components).
 
 - ⚡ Fast
 - 💥 Powered by `Suspense`
