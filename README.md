@@ -10,6 +10,9 @@
 - 💥 Powered by `Suspense`
 - 🔥 Easy to use
 
+<br />
+
+You just need to create a file with a name that contains `.worker.`, in case you want to render its components in a Worker. 
 ### `Fib.worker.tsx`
 ```tsx
 const fib = (i: number): number => {
