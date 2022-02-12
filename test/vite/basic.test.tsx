@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, test } from "vitest";
-import { createServer } from "vite";
+import { createServer, build, preview } from "vite";
 import type { PreviewServer } from "vite";
 import puppeteer from "puppeteer";
 import type { Browser, Page } from "puppeteer";
@@ -13,13 +13,25 @@ describe("basic", async () => {
   let page: Page;
 
   beforeAll(async () => {
-    server = await createServer({
-      preview: { port: 3000 },
-      root: process.cwd(),
-      mode: "dev",
-    });
-    server.httpServer.listen(3000);
-    // server = await preview({ preview: { port: 3000 }, root: process.cwd() });
+    console.log(process.env);
+    if (process.env.PREVIEW) {
+      await build({
+        root: process.cwd(),
+      });
+
+      server = await preview({
+        preview: { port: 3000 },
+        root: process.cwd(),
+      });
+    } else if (process.env.DEV) {
+      server = await createServer({
+        preview: { port: 3000 },
+        root: process.cwd(),
+        mode: "dev",
+      });
+      server.httpServer.listen(3000);
+    }
+
     browser = await puppeteer.launch();
     page = await browser.newPage();
   });
@@ -34,7 +46,6 @@ describe("basic", async () => {
     expect(await page.content()).toContain("Workers");
     expect(await page.content()).toContain("Loading");
     await autoRetry(async () => {
-      // fib(40)
       expect(await page.content()).toContain("102334155");
     });
 

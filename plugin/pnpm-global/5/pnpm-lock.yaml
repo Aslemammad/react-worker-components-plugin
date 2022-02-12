@@ -2,3 +2,6 @@ lockfileVersion: 5.3
 
 specifiers:
   react-worker-components: ^0.1.0
+
+dependencies:
+  react-worker-components: link:../../../../.nvm/versions/node/v16.5.0/pnpm-global/5/node_modules/react-worker-components

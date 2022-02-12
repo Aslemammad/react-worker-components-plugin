@@ -7,6 +7,7 @@ import rwc from "react-worker-components-plugin/vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [rwc(), Inspect()],
+  build: { sourcemap: true },
   test: {
     testTimeout: 30_000,
     hookTimeout: 30_000,

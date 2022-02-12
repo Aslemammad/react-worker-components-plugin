@@ -2,8 +2,7 @@ import React from "react";
 
 import { Hello, Hey as Hey1 } from "./Hello.worker";
 import { Suspense, useState } from "react";
-import "./TextBox";
-console.log(Hello, Hey1)
+import { TextBox } from "./TextBox";
 
 function App() {
   const [count, setCount] = useState(40);
@@ -24,7 +23,11 @@ function App() {
 
       <Suspense fallback={<div>Loading...</div>}>
         <Hey1 />
-        <Hello count={count}></Hello>
+      </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Hello count={count}>
+          <TextBox />
+        </Hello>
       </Suspense>
     </div>
   );

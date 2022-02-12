@@ -1,7 +1,9 @@
 {
   "type": "module",
   "scripts": {
-    "test": "vitest"
+    "start": "vite",
+    "test:dev": "cross-env DEV=true vitest",
+    "test:preview": "cross-env PREVIEW=true vitest "
   },
   "dependencies": {
     "mime": "^3.0.0",
