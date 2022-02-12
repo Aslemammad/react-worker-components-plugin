@@ -3,7 +3,8 @@
   "scripts": {
     "start": "vite",
     "test:dev": "cross-env DEV=true vitest",
-    "test:preview": "cross-env PREVIEW=true vitest "
+    "test:preview": "cross-env PREVIEW=true vitest",
+    "test": "pnpm test:dev && pnpm test:dev"
   },
   "dependencies": {
     "mime": "^3.0.0",
