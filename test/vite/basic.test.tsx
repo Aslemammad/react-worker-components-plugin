@@ -13,7 +13,6 @@ describe("basic", async () => {
   let page: Page;
 
   beforeAll(async () => {
-    console.log(process.env);
     if (process.env.PREVIEW) {
       await build({
         root: process.cwd(),
