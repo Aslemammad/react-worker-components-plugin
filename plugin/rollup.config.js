@@ -24,6 +24,7 @@ export default [
       },
     },
     output: {
+      sourcemap: 'inline',
       dir: "dist",
       format: "esm",
     },
@@ -50,6 +51,7 @@ export default [
     },
     input: ["src/vite.ts"],
     output: {
+      sourcemap: 'inline',
       file: "dist/vite.d.ts",
       format: "esm",
     },
@@ -64,6 +66,7 @@ export default [
     },
     input: ["src/index.ts"],
     output: {
+      sourcemap: 'inline',
       file: "dist/index.d.ts",
       format: "esm",
     },

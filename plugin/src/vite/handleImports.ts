@@ -22,19 +22,28 @@ export default function handleImports(): Plugin {
             src.substring(statementStart, statementEnd)
           )?.[1];
 
-          const importObject = importContent
-            ?.split(",")
-            ?.map((i) => {
-              return i.replace("as", ":");
-            })
-            .join(",");
+          const entries: Record<string, string> = {};
+
+          importContent?.split(",")?.forEach((i) => {
+            if (i.includes("as")) {
+              const [component, as] = i.split("as");
+              entries[component.trim()] = as.trim();
+            } else {
+              entries[i.trim()] = i.trim();
+            }
+          });
 
           s.remove(statementStart, statementEnd);
+
           const newContent = `
           import { wrap } from 'react-worker-components-plugin/rwc';
           import __RWC_WORKER_${index} from '${n}';
 
-          const { ${importObject} } = wrap(() => new __RWC_WORKER_${index}());
+          ${Object.entries(entries)
+            .map(([component, as]) => {
+              return `const ${as} = wrap(() => new __RWC_WORKER_${index}(), '${component}');`;
+            })
+            .join("\n")}
             `;
           s.prepend(newContent);
 

@@ -40,6 +40,8 @@
   },
   "homepage": "https://github.com/aslemammad/react-worker-components-plugin#readme",
   "devDependencies": {
+    "aslemammad-react-worker-components": "^0.1.1",
+    "react-worker-components": "^0.1.0",
     "typescript": "^4.5.3",
     "vite": "2.7.0"
   },
@@ -50,10 +52,8 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "aslemammad-react-worker-components": "^0.1.1",
     "chalk": "^5.0.0",
     "es-module-lexer": "^0.9.3",
-    "mime": "^3.0.0",
-    "react-worker-components": "^0.1.0"
+    "mime": "^3.0.0"
   }
 }
