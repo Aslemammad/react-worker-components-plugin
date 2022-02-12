@@ -79,7 +79,7 @@ npm install -D react-worker-components-plugin
  ```js
  // vite.config.js
 import { defineConfig } from "vite";
-import rwc from "react-worker-components-plugin/vite";
+import { vite as rwc } from "react-worker-components-plugin";
 
 export default defineConfig({
   plugins: [rwc()]
