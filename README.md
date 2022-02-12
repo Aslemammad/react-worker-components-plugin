@@ -13,6 +13,10 @@
 <br />
 
 You just need to create a file with a name that contains `.worker.`, in case you want to render its components in a Worker. 
+
+## Example 
+[Try online (Stackblitz)](https://stackblitz.com/edit/vitejs-vite-eneunr)
+
 ### `Fib.worker.tsx`
 ```tsx
 const fib = (i: number): number => {
