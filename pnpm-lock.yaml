@@ -81,12 +81,12 @@ importers:
       typescript: ^4.5.3
       vite: 2.7.0
     dependencies:
-      aslemammad-react-worker-components: 0.1.1_react@17.0.2
       chalk: 5.0.0
       es-module-lexer: 0.9.3
       mime: 3.0.0
-      react-worker-components: link:node_modules/react-worker-components
     devDependencies:
+      aslemammad-react-worker-components: 0.1.1_react@17.0.2
+      react-worker-components: 0.1.0_react@17.0.2
       typescript: 4.5.4
       vite: 2.7.0
 
@@ -718,7 +718,7 @@ packages:
       react: '>=16.8.0'
     dependencies:
       react: 17.0.2
-    dev: false
+    dev: true
 
   /assertion-error/1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
