@@ -1,60 +1,86 @@
-# vite-plugin-cloudflare 🔥
+# react-worker-components-plugin ⚡
 
-[![Discord](https://img.shields.io/discord/815937377888632913.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/Rhg9cEghMF)
+![](https://img.shields.io/static/v1?label=mode&message=experimental&color=red)
 
-Vite-plugin-cloudflare is a software for transforming & bundling cloudflare workers with shimming [node globals](https://github.com/calvinmetcalf/rollup-plugin-node-globals) and [builtins](https://github.com/calvinmetcalf/rollup-plugin-node-builtins/)  like `process`, `os`, `stream` and plenty of other node functions and modules using **Esbuild** abd **Vite**!
+> *something like react server components, but web workers instead of a server*
 
-- ⚡ Lightning builds
-- 💥 Workers compatible build using shimming
-- 🔥 Fast development incremental reloads
-- ✏️ Easy simulation using [Miniflare](https://miniflare.dev/) 
+react-worker-components-plugin is a plugin that renders components in web workers and not in the main thread, which helps in rendering blocking components in a non-blocking way.  This project is based on the experimental [react-worker-components](https://github.com/dai-shi/react-worker-components).
+
+- ⚡ Fast
+- 💥 Powered by `Suspense`
+- 🔥 Easy to use
+
+### `Fib.worker.tsx`
+```tsx
+const fib = (i: number): number => {
+  const result = i <= 1 ? i : fib(i - 1) + fib(i - 2);
+  return result;
+};
+
+export const Fib = ({ num, children }) => {
+  const fibNum = fib(num); 
+
+  return (
+    <div>
+      <span>fib of number {num}: {fibNum}</span>
+      {children}
+    </div>
+  );
+};
+```
+### `App.tsx`
+```tsx
+import { Fib } from './Fib.worker'
+
+function App() {
+  const [count, setCount] = useState(40);
+  return (
+    <div>
+      <h1>Workers</h1>
+      <span>Count: {count}</span>
+      <button id="increment" type="button" onClick={() => setCount(count + 1)}>
+        +1
+      </button>
+      <button
+        id="decrement"
+        type="button"
+        onClick={() => setCount((c) => c - 1)}
+      >
+        -1
+      </button>
+      <Suspense fallback={<div>Loading...</div>}>
+	      <Fib num={count} />
+      </Suspense>
+    </div>
+  );
+}
+
+export default App;
+
+```
+
+![chrome-capture](https://user-images.githubusercontent.com/37929992/153716004-8e4bd404-47ce-4a60-8931-db11018a4967.gif)
+
 
 ## Install
 ```
-npm install -D vite-plugin-cloudflare
+npm install -D react-worker-components-plugin
 ```
- 
- ## Build
- ```
- vite-plugin-cloudflare build input.ts worker.js 
- # or 
- vpc build input.ts worker.js 
- ```
- Now you can upload or use the `worker.js` file as your cloudflare worker file.
- 
- ## Development
- ```
-  vpc dev input.ts 
- ```
+ ## Plugins
+ ### Vite 
+ This plugin for now works in Vite, and it's tested properly there.
+ ```js
+ // vite.config.js
+import { defineConfig } from "vite";
+import rwc from "react-worker-components-plugin/vite";
 
-Here you can navigate to `localhost:3000` and see the output of your worker. With every change to the related files, Esbuild is going to rebuild incrementally through the Vite server, then Miniflare reloads the script so you can check the new results by refreshing your browser or reloading your client.
-
-![image_2021-12-28_22-53-23](https://user-images.githubusercontent.com/37929992/147600217-e2d632cb-78d1-45d8-86cc-081fee8e8f64.png)
-
-## More
-For seeing more options:
+export default defineConfig({
+  plugins: [rwc()]
+});
 ```
-vpc -h
-```
-And more examples in [test/](https://github.com/Aslemammad/vite-plugin-cloudflare/tree/main/test).
 
-## New features
+### Next/Webpack/...
+It's planned to support other bundlers, any help is appreciated in that case!
 
-- `?raw` support like vitejs
-- `__STATIC_CONTENT_MANIFEST` as external
-
-## Credits
-[Brillout](https://github.com/brillout/)
-
-[Viteflare](https://github.com/alloc/viteflare)
-
-[Cloudflare](https://workers.cloudflare.com/)
-
-[Miniflare](http://miniflare.dev/)
-
-[Vitest](https://github.com/vitest-dev/vitest)
-
-[Node-builtins](https://github.com/calvinmetcalf/rollup-plugin-node-builtins)
-
-[Cac](https://www.npmjs.com/package/cac#display-help-message-and-version)
-# react-worker-components-plugin
+## Contributing 
+Please try the plugin, find issues, report and fix them by sending Pull requests and issues! I appreciate that. 
