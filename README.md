@@ -13,6 +13,10 @@
 <br />
 
 You just need to create a file with a name that contains `.worker.`, in case you want to render its components in a Worker. 
+
+## Example 
+[Try online (Stackblitz)](https://stackblitz.com/edit/vitejs-vite-eneunr)
+
 ### `Fib.worker.tsx`
 ```tsx
 const fib = (i: number): number => {
@@ -75,7 +79,7 @@ npm install -D react-worker-components-plugin
  ```js
  // vite.config.js
 import { defineConfig } from "vite";
-import rwc from "react-worker-components-plugin/vite";
+import { vite as rwc } from "react-worker-components-plugin";
 
 export default defineConfig({
   plugins: [rwc()]
