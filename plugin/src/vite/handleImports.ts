@@ -13,6 +13,7 @@ export default function handleImports(): Plugin {
       if (workerComponentImports.length) {
         const s = new MagicString(src);
         let index = 0;
+
         for (const {
           ss: statementStart,
           se: statementEnd,
@@ -34,14 +35,19 @@ export default function handleImports(): Plugin {
           });
 
           s.remove(statementStart, statementEnd);
+          const wrapImportContent = `import { wrap } from 'react-worker-components-plugin/rwc';`
+          const injectedWrapImportContent = s.toString().includes(wrapImportContent) ? '' : wrapImportContent;
 
+          const workerName = `__RWC_WORKER_${index}`;
+          const workerNameCreator = `create__RWC_WORKER_${index}`;
           const newContent = `
-          import { wrap } from 'react-worker-components-plugin/rwc';
-          import __RWC_WORKER_${index} from '${n}';
+          ${injectedWrapImportContent}
+          import ${workerName} from '${n}';
+          const ${workerNameCreator} = () => new ${workerName}();
 
           ${Object.entries(entries)
             .map(([component, as]) => {
-              return `const ${as} = wrap(() => new __RWC_WORKER_${index}(), '${component}');`;
+              return `const ${as} = wrap(${workerNameCreator}, '${component}');`;
             })
             .join("\n")}
             `;
